@@ -30,8 +30,8 @@ public class ThymeleafController {
         // 将获取的 rtn 数据和 Student 对象添加到模型中
         model.addAttribute("myStudent", student);
         model.addAttribute("myRtn", rtn);
-
-        return "index";
+        
+        return "login";
     }
 
 
@@ -41,9 +41,12 @@ public class ThymeleafController {
     }
 
     @PostMapping("/login")
-    public String login(String userName, String userPassword) {
+    public String login(String userName, String userPassword,Model model) {
         System.out.println("userName 為: " + userName);
         System.out.println("userPassword 為: " + userPassword);
+        Rtn rtn = rtnService.getProductById(1);
+        model.addAttribute("myRtn", rtn);
+        
         return "login";
     }
 
