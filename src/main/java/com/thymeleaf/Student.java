@@ -1,4 +1,4 @@
-package com.example.thymeleaf;
+package com.thymeleaf;
 
 public class Student {
     Integer id;
