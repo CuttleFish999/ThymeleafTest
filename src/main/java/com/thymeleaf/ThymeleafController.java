@@ -19,18 +19,21 @@ public class ThymeleafController {
 
     @GetMapping("/home")
     public String home(Model model) {
+        // 从数据库中获取 rtn 数据
+        Rtn rtn = rtnService.getProductById(1);
+
+        // 创建 Student 对象（这里假设 Student 类有对应的构造函数）
         Student student = new Student();
-        Rtn rtn = new Rtn();
-        
         student.setId(1);
         student.setName("Judy");
-        
-        rtn.setRtnNo(2);
+
+        // 将获取的 rtn 数据和 Student 对象添加到模型中
         model.addAttribute("myStudent", student);
-        model.addAttribute("myRtn", rtn);  // 使用不同的属性名
+        model.addAttribute("myRtn", rtn);
 
         return "index";
     }
+
 
     @GetMapping("/hello")
     public String hello() {
